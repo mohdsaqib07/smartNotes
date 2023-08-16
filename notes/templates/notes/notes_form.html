@@ -1,0 +1,40 @@
+{% extends 'basic.html' %}
+{% block title %}New Notes{% endblock %}
+{% block css %}
+input,textarea{
+ width:100% !important;
+ margin: 3px 6px !important;
+ box-sizing:border-box !important;
+ border:none;
+ border-bottom:1px solid #ccc !important;
+ outline:none;
+}
+input,textarea:focus{
+    box-shadow:1px 2px 2px #eee !important;
+}
+ul.errorlist{
+    display:none;
+}
+{% endblock %}
+{% block body %}
+ 
+ <div class="container my-3 text-center"> 
+    <h2 style="margin-bottom: 15px !important;" class="text-success">Create New Notes</h2>      
+    <form method="post" class="w-50 mx-auto p-4 border rounded-3 text-start overflow-hidden" style="box-sizing: border-box;box-shadow: 2px 2px 2px #ccc;">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="{% url 'NotesList' %}" class="btn btn-secondary">Cancel</a>
+       </form>
+          {% if form.errors %}
+      <div class="alert alert-danger my-5 w-75 mx-auto"> 
+          {{form.errors.title.as_text}}
+      </div>
+    {% endif %}
+    </div>
+
+<script>
+    {% comment %} document.getElementById('id_title').placeholder='Enter a title';
+    document.getElementById('id_notes').placeholder='Content'; {% endcomment %}
+</script>
+{% endblock %}

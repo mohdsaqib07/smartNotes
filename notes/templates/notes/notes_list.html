@@ -1,0 +1,21 @@
+{% extends 'basic.html' %}
+{% block title %} Smart Notes Titles {% endblock %}
+
+{% block body %}
+<div class="container my-4 text-center">
+  
+  <h2 class="text-start text-capitalize">Welcome {{user.username}}</h2>
+  <h1 class="notes-title">These are the notes: </h1>
+  <div class="row row-col3 g-2 my-4"> 
+    {% for note in notes %}
+    <div class="col-md-4">
+      <div class="p-3 border">              
+        <a href="{% url 'notesDetails' pk=note.sno %}" style="text-decoration: none;color:black;"><h3>{{note.title}}</h3></a>
+        {{note.notes|truncatechars:10}}
+      </div>
+      
+    </div>
+    {% endfor %}
+    </div>
+</div>
+{% endblock %}

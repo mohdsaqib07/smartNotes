@@ -1,0 +1,17 @@
+{% extends 'basic.html' %}
+{% block title %} Signup {% endblock %}
+{% block css %}
+.helptext{
+    white-space: nowrap !important; 
+}
+{% endblock %}
+{% block body %}
+<div class="container mx-auto w-50 my-4 border rounded-2 p-4">
+    <h2 class="mb-2">SignUp</h2>
+    <form method="post" class="">
+        {% csrf_token %}
+{{form.as_p}}
+<input type="submit" value="SignUp" class="btn btn-primary">
+    </form>
+</div>
+{% endblock %}

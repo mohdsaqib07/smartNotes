@@ -1,0 +1,15 @@
+*{
+box-sizing: border-box;
+}
+.notes-title{
+    text-align: start;
+}
+.notes-list{
+  
+    list-style-type: none;
+}
+.notes-titles::before{
+    content : "✔ ";
+    color: #006086;
+    
+}

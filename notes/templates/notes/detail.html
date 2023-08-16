@@ -1,0 +1,14 @@
+{% extends 'basic.html' %}
+{% block title %} Details {% endblock %}
+{% block body %}
+<div class="container text-center my-2">    
+    <div class="border border rounded-1">
+    <h1 class="my-5">{{note.title}}</h1>
+    <p>{{note.notes}}</p>
+</div>
+<a href="/smart/notes" role="button" class="btn btn-secondary my-5">Back</a>
+<a href="{% url 'notesUpdate' pk=note.pk %}" class="btn btn-secondary my-5">edit</a>
+<a href="{% url 'notesDelete' pk=note.pk %}" class="btn btn-danger my-5">delete</a>
+</div>
+
+{% endblock %}

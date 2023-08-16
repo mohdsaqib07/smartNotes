@@ -1,0 +1,11 @@
+{% extends 'basic.html' %}
+{% block title %}SmartNotes {% endblock %}
+{% block body %}
+<div class="container my-4 text-center">
+    <h1 class="fw-semibold fst-italic">Welcome to the SmartNotes!</h1>
+    <h3>Todays date is : {{today|date}}</h3>
+    <a href="{% url 'NotesList' %}" role="button" class="btn btn-primary text-light">Check out these smart notes !</a> <br>
+
+
+</div>
+{% endblock %}
